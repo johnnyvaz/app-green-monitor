@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "nuxt",
     "dev:ip": "nuxt --hostname '192.168.0.8' --port 8000",
-    "build": "nuxt build",
+    "nvm": "nvm install 14.17.0 && nvm use 14.17.0",
+    "build": "nvm && nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",
