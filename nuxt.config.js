@@ -51,6 +51,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/sitemap'
   ],
+  babel: { compact: true },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   // pwa: {
   //   manifest: {
