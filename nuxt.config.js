@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  mode: 'universal',
+  // mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Green Monitor',
@@ -52,24 +52,24 @@ export default {
     '@nuxtjs/sitemap'
   ],
   // },
-  // sitemap: {
-  //   hostname: 'https://localhost',
-  //     gzip: true,
-  //     exclude: [
-  //     '/secret',
-  //     '/admin/**'
-  //   // ],
-  //     // routes: [
-  //     // '/page/1',
-  //     // '/page/2',
-  //     // {
-  //     //   url: '/page/3',
-  //     //   changefreq: 'daily',
-  //     //   priority: 1,
-  //     //   lastmod: '2017-06-30T13:30:00.000Z'
-  //     // }
-  //   ]
-  // },
+  sitemap: {
+    hostname: 'https://app-green-monitor.netlify.app',
+      gzip: true,
+      exclude: [
+      '/secret',
+      '/admin/**'
+    // ],
+      // routes: [
+      // '/page/1',
+      // '/page/2',
+      // {
+      //   url: '/page/3',
+      //   changefreq: 'daily',
+      //   priority: 1,
+      //   lastmod: '2017-06-30T13:30:00.000Z'
+      // }
+    ]
+  },
   // Content module configuration: https://go.nuxtjs.dev/config-content
     content: {
       editor: '~/.nuxt/content/editor.vue',
