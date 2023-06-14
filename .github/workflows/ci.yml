@@ -1,0 +1,63 @@
+name: Construir Site
+
+on:
+  push:
+    tags: releases/[1-9]+.[0-9]+.[0-9]+
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+
+jobs:
+  build:
+  # só deixa executar se o último commit não conter 'skip ci' na mensagem
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      # configura o GITHUB_TOKEN
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
+      - name: Configura o GitHub token
+        if: "github.event_name != 'pull_request'"
+        uses: fregante/setup-git-token@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: "Gerador de changelog"
+          email: "changelog@users.noreply.github.com"
+
+      # instala a versão 11.x do Node.js
+      - name: Instala o Node.js 12.18
+        if: github.event_name != 'pull_request'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18'
+          cache: 'npm'
+
+      # instala as dependências, vai para a master
+      # executa o standard-version, e envia o commit e tag
+      - name: Gera o CHANGELOG
+        if: "github.event_name != 'pull_request'"
+        run: |
+          npm install
+          git checkout master
+          npm run release
+          git push origin master --follow-tags
+
+
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2
+        with:
+          # node-version: ${{ matrix.node-version }}
+          node-version: '12.18'
+          cache: 'npm'
+
+      - name: Install dependencies 👨🏻‍💻
+        run: npm install
+
+      - name: Run tests 🧪
+        run: npm run test
