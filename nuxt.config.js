@@ -51,13 +51,6 @@ export default {
     '@nuxt/content',
     '@nuxtjs/sitemap'
   ],
-  babel: { compact: true },
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  // pwa: {
-  //   manifest: {
-  //     name: 'Dândaro Site',
-  //     lang: 'en'
-  //   }
   // },
   // sitemap: {
   //   hostname: 'https://localhost',
@@ -93,6 +86,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: { compact: true },
   },
   googleAnalytics: {
     id: 'G-ZSGVG6JD6K'
