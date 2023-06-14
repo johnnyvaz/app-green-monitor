@@ -1,9 +1,6 @@
 <template>
   <section class="section section-lg section-shaped overflow-hidden my-0">
     <div class="shape shape-style-1 shape-default shape-skew">
-      <span></span>
-      <span></span>
-      <span></span>
     </div>
 
     <div class="container py-0 pb-lg">

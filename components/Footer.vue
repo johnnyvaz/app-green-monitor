@@ -3,8 +3,10 @@
     <div class="container">
       <div class="row row-grid align-items-center my-md">
         <div class="col-lg-6">
-          <h3 class="text-primary font-weight-light mb-2">Siga em nossas redes sociais!</h3>
-          <h4 class="mb-0 font-weight-light">E fique por dentro das novidades.</h4>
+          
+          <a href="https://aqicn.org/city/brazil/sao-paulo/sao-jose-do-rio-preto/pt">
+            <h3 class="text-primary font-weight-light mb-2">Fonte das Informações</h3>
+          </a>
         </div>
         
       </div>

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <MenuHeader />
-    <Header />
     <div>
 <!--      <FadeTransition :duration="300" mode="out-in">-->
         <!-- your content here -->
