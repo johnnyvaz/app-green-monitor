@@ -11,7 +11,7 @@
           <div>
 
             <div class="card-container">
-              <div class="card" :class="{ 'animate-colors': data.aqi < 50 }">
+              <div class="card" :class="{ 'animate-colors': data.aqi > 50 }">
                 <div class="card-header" style="background-color: lightblue">
                   <h3>{{ data.aqi }}</h3>
                 </div>
@@ -19,30 +19,29 @@
                   <div>Índice de qualidade do ar</div>
                 </div>
                 <div class="card-footer" style="background-color: lightblue">
-                  <!-- <p>Localização: {{ data.city.name }}</p> -->
-                  <p>Nível ideal: 50</p>
+                  <p>Nível ideal: de 0 a 50</p>
                 </div>
               </div>
-              <div class="card" :class="{ 'animate-colors': data.iaqi.t.v < 20 }">
+              <div class="card">
                 <div class="card-header" style="background-color: lightgreen">
-                  <h3>{{ data.iaqi.t.v }}</h3>
+                  <h3>{{ data.iaqi.t.v }}°</h3>
                 </div>
                 <div class="card-body">
                   <div>Temperatura</div>
                 </div>
                 <div class="card-footer" style="background-color: lightgreen">
-                  <p>Nível ideal: 20 </p>
+                  <p>-</p>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header" style="background-color: lightpink">
-                  <h3>{{ data.iaqi.p.v }}</h3>
+                  <h3>{{ data.iaqi.p.v }} hPa</h3>
                 </div>
                 <div class="card-body">
                   <div>Pressão</div>
                 </div>
                 <div class="card-footer" style="background-color: lightpink">
-                  <p>Nível ideal: </p>
+                  <p>-</p>
                 </div>
               </div>
             </div>
@@ -50,26 +49,26 @@
             <!-- -------------------------- -->
 
             <div class="card-container">
-              <div class="card">
+              <div class="card" :class="{ 'animate-colors': data.iaqi.h.v > 50 || data.iaqi.h.v < 80 }">
                 <div class="card-header" style="background-color: lightblue">
-                  <h3>{{ data.iaqi.h.v }}</h3>
+                  <h3>{{ data.iaqi.h.v }} %</h3>
                 </div>
                 <div class="card-body">
                   <div>Humidade</div>
                 </div>
                 <div class="card-footer" style="background-color: lightblue">
-                  <p>Nível ideal: </p>
+                  <p>Nível ideal: de 50% a 80%</p>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header" style="background-color: lightgreen">
-                  <h3>{{ data.iaqi.w.v }}</h3>
+                  <h3>{{ data.iaqi.w.v }} kmh</h3>
                 </div>
                 <div class="card-body">
                   <div>Vento</div>
                 </div>
                 <div class="card-footer" style="background-color: lightgreen">
-                  <p>Nível ideal: </p>
+                  <p>-</p>
                 </div>
               </div>
             </div>
@@ -79,33 +78,80 @@
               <h2>Poluentes</h2>
             </div>
             <div class="card-container">
-              <div class="card">
+              <div class="card" :class="{ 'animate-colors': data.iaqi.no2.v > 200 }">
                 <div class="card-header" style="background-color: lightblue">
-                  <h3>{{ data.iaqi.no2.v }}</h3>
+                  <h3>{{ data.iaqi.no2.v }} µg/m³</h3>
                 </div>
                 <div class="card-body">
-                  <div>NO2</div>
+                  <div>NO² - Dióxido de Nitrogênio</div>
                 </div>
                 <div class="card-footer" style="background-color: lightblue">
-                  <p>Nível ideal: </p>
+                  <p>Nível ideal: 0 a 200</p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card" :class="{ 'animate-colors': data.iaqi.co.v > 9 }">
                 <div class="card-header" style="background-color: lightgreen">
-                  <h3>{{ data.iaqi.w.v }}</h3>
+                  <h3>{{ data.iaqi.co.v }} ppm</h3>
                 </div>
                 <div class="card-body">
-                  <div>Vento</div>
+                  <div>CO - Monóxido de Carbono</div>
                 </div>
                 <div class="card-footer" style="background-color: lightgreen">
-                  <p>Nível ideal: </p>
+                  <p>Nível ideal: 0 a 9</p>
+                </div>
+              </div>
+              <div class="card" :class="{ 'animate-colors': data.iaqi.o3.v > 100 }">
+                <div class="card-header" style="background-color: lightpink">
+                  <h3>{{ data.iaqi.o3.v }} µg/m³</h3>
+                </div>
+                <div class="card-body">
+                  <div>O3 - Ozônio</div>
+                </div>
+                <div class="card-footer" style="background-color: lightpink">
+                  <p>Nível ideal: 0 a 100</p>
                 </div>
               </div>
             </div>
 
             <div class="card-container">
+              <div class="card" :class="{ 'animate-colors': data.iaqi.pm10.v > 50 }">
+                <div class="card-header" style="background-color: lightblue">
+                  <h3>{{ data.iaqi.pm10.v }} µg/m³</h3>
+                </div>
+                <div class="card-body">
+                  <div>MP 10 - Partículas Inaláveis</div>
+                </div>
+                <div class="card-footer" style="background-color: lightblue">
+                  <p>Nível ideal: 0 a 50</p>
+                </div>
+              </div>
+              <div class="card" :class="{ 'animate-colors': data.iaqi.pm25.v > 25 }">
+                <div class="card-header" style="background-color: lightgreen">
+                  <h3>{{ data.iaqi.pm25.v }} µg/m³</h3>
+                </div>
+                <div class="card-body">
+                  <div>MP 2,5 - Partículas Inaláveis Finas</div>
+                </div>
+                <div class="card-footer" style="background-color: lightgreen">
+                  <p>Nível ideal: 0 a 25</p>
+                </div>
+              </div>
+              <!-- <div class="card">
+                <div class="card-header" style="background-color: lightpink">
+                  <h3>{{ data.iaqi.o3.v }}</h3>
+                </div>
+                <div class="card-body">
+                  <div>O3 - Ozônio</div>
+                </div>
+                <div class="card-footer" style="background-color: lightpink">
+                  <p></p>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="card-container">
               <div class="card">
-                <h2>Previsão - 'o3'</h2>
+                <h2>Ozônio - µg/m³</h2>
                 <table class="table">
                   <thead>
                     <tr>
@@ -126,7 +172,7 @@
                 </table>
               </div>
               <div class="card">
-                <h2>PM 10</h2>
+                <h2>Partículas Inaláveis - MP10</h2>
                 <table class="table">
                   <thead>
                     <tr>
@@ -147,7 +193,7 @@
                 </table>
               </div>
               <div class="card">
-                <h2>PM 25</h2>
+                <h2>Partículas Inaláveis Finas - MP25</h2>
                 <table class="table">
                   <thead>
                     <tr>
@@ -211,7 +257,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch('https://api.waqi.info/feed/here/?token=402d3f043a9c77b1a06ef7bfcce11e799b8a6273')
+      fetch('https://api.waqi.info/feed/sao-paulo/?token=402d3f043a9c77b1a06ef7bfcce11e799b8a6273')
         .then(response => response.json())
         .then(data => {
           this.loading = false;
@@ -299,13 +345,13 @@ export default {
 
 @keyframes alternateColors {
   0% {
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(255, 245, 105);
   }
   50% {
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(255, 255, 255);
   }
   100% {
-    background-color: rgb(121, 121, 121);
+    background-color: rgb(255, 245, 105);
   }
 }
 
